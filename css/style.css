@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+:root {
+  --blue: #030821;
+  --gray: #a4b5db;
+}
+* {
+  font-family: "Roboto", sans-serif;
+  text-transform: capitalize;
+  text-decoration: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::selection {
+  background: var(--blue);
+  color: aliceblue;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+header {
+  width: 96%;
+  background: aliceblue;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  transition: 0.2s;
+}
+
+.home {
+  min-height: 100vh;
+  background: linear-gradient(rgba(3, 8, 21, 0.8), rgba(164, 181, 219, 0.8)),
+    url(../images/home.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.home .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  padding-top: 14rem;
+  padding-bottom: 8rem;
+  text-align: center;
+}
+
+.home .content h1 {
+  font-size: 5rem;
+  color: aliceblue;
+  padding: 0 1rem;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+
+.home .content p {
+  font-size: 2rem;
+  color: #eee;
+  padding: 1rem 25rem;
+}
+
+.home .content button {
+  height: 4rem;
+  width: 20rem;
+  border-radius: 5rem;
+  background: var(--blue);
+  color: aliceblue;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.2s;
+  border: none;
+  box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.3);
+}
+.home .content button:hover {
+  letter-spacing: 0.2rem;
+}
+
+.header-active {
+  top: 0;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+}
+header .navbar ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+header .navbar ul li {
+  margin: 0 1rem;
+}
+
+header .navbar ul li a {
+  font-size: 2rem;
+  color: var(--blue);
+  transition: 0.2s;
+}
+header .navbar ul li .active,
+header .navbar ul li a:hover {
+  color: var(--gray);
+}
+
+header .logo {
+  font-size: 2.5rem;
+  color: var(--gray);
+  text-transform: uppercase;
+}
+
+header .logo i {
+  color: var(--blue);
+  padding: 0 0.2rem;
+}
+
+header .fa-bars {
+  font-size: 3rem;
+  color: var(--blue);
+  cursor: pointer;
+  display: none;
+  transition: 0.2s;
+}
+
+header .fa-times {
+  transform: rotate(180deg);
+  color: var(--gray);
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+
+  header .fa-bars {
+    display: block;
+  }
+
+  header .navbar {
+    position: fixed;
+    top: -100rem;
+    left: 0;
+    width: 100%;
+    background: aliceblue;
+    border-radius: 1rem;
+    opacity: 0;
+    transition: 0.2s linear;
+  }
+
+  header .navbar ul {
+    flex-flow: column;
+    padding: 2rem 0;
+  }
+
+  header .navbar ul li {
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
+  }
+  header .navbar ul li a {
+    font-size: 3rem;
+    display: block;
+  }
+
+  header .nav-toggle {
+    top: 5.5rem;
+    opacity: 1;
+  }
+}
