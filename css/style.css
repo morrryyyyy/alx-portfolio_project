@@ -55,6 +55,18 @@ header {
   z-index: 1000;
   transition: 0.2s;
 }
+header .navbar button {
+  height: 4rem;
+  width: 10rem;
+  border-radius: 5rem;
+  background: var(--blue);
+  color: aliceblue;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.2s;
+  border: none;
+  box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.3);
+}
 
 .home {
   min-height: 100vh;

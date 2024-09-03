@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+:root {
+  --blue: #030821;
+  --gray: #3b5ca5;
+}
+
+/* general section starts */
+.container {
+  width: 1000px;
+  height: 550px;
+  margin: 30px auto;
+  display: flex;
+  background: aliceblue;
+  border-radius: 10px;
+  box-shadow: 5px 5px 7px gray, -5px -5px 7px gray;
+}
+button {
+  width: 250px;
+  margin: 8px;
+  padding: 8px;
+  background: var(--blue);
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+button span {
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+button:hover span {
+  padding-right: 30px;
+}
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+p a {
+  text-decoration: none;
+  color: var(--blue);
+}
+
+form h1,
+h1,
+h4 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+h4 {
+  text-transform: capitalize;
+}
+p {
+  text-align: center;
+}
+
+/* general section ends */
+
+/* signup section starts */
+.signup form {
+  width: 600px;
+  height: 20rem;
+}
+.signup form label {
+  font-size: 16px;
+  display: flex;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.signup input {
+  width: 80%;
+  padding: 8px;
+  margin: 8px;
+}
+.signup .para-2 {
+  margin-top: 50px;
+}
+/* signup section ends */
+
+/* Login section starts */
+.login form label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px;
+}
+.login input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px;
+  outline: none;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.login {
+  width: 500px;
+}
+.login form {
+  width: 230px;
+  margin: 100px auto;
+}
+
+hr {
+  border-top: 2px solid var(--blue);
+}
+.pic {
+  width: 75%;
+  background: white;
+}
+.pic img {
+  width: 300px;
+  margin: 70px 0 0 100px;
+}
+img:hover {
+  padding: 3px;
+  cursor: pointer;
+}
+/* Login section ends  */
