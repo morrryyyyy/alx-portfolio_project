@@ -15,184 +15,121 @@
   box-sizing: border-box;
 }
 body {
-  background: #dfe9f5;
-}
-.container {
-  display: flex;
-}
-nav {
-  position: relative;
-  top: 0;
-  bottom: 0;
-  height: 100vh;
-  left: 0;
-  background: #fff;
-  width: 280px;
-  overflow: hidden;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-}
-.logo {
-  text-align: center;
-  display: flex;
-  margin: 10px 0 0 10px;
-}
-.logo img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-}
-.logo span {
-  font-weight: bold;
-  padding-left: 15px;
-  font-size: 18px;
-  text-transform: uppercase;
-}
-a {
-  position: relative;
-  color: rgb(85, 83, 83);
-  font-size: 14px;
-  display: table;
-  width: 280px;
-  padding: 10px;
-}
-nav .fas {
-  position: relative;
-  width: 70px;
-  height: 40px;
-  top: 14px;
-  font-size: 20px;
-  text-align: center;
-}
-.nav-item {
-  position: relative;
-  top: 12px;
-  margin-left: 10px;
-}
-a:hover {
-  background: #eee;
-}
-.logout {
-  position: absolute;
-  bottom: 0;
+  background-color: aliceblue;
+  margin: 0;
+  padding: 0;
 }
 
-/* Main Section */
-.main {
-  position: relative;
-  padding: 20px;
-  width: 100%;
-}
-.main-top {
-  display: flex;
-  width: 100%;
-}
-.main-top i {
-  position: absolute;
-  right: 0;
-  margin: 10px 30px;
-  color: rgb(110, 109, 109);
-  cursor: pointer;
-}
-.main-skills {
-  display: flex;
-  margin-top: 20px;
-}
-.main-skills .card {
-  width: 25%;
-  margin: 10px;
-  background: #fff;
+header {
+  background-color: var(--blue);
+  color: aliceblue;
+  padding: 15px 0;
   text-align: center;
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-}
-.main-skills .card h3 {
-  margin: 10px;
-  text-transform: capitalize;
-}
-.main-skills .card p {
-  font-size: 12px;
-}
-.main-skills .card button {
-  background: var(--blue);
-  color: #fff;
-  padding: 7px 15px;
-  border-radius: 10px;
-  margin-top: 15px;
-  cursor: pointer;
-}
-.main-skills .card button:hover {
-  background: rgba(3, 8, 33, 0.856);
-}
-.main-skills .card i {
-  font-size: 22px;
-  padding: 10px;
 }
 
-/* Courses */
-.main-course {
-  margin-top: 20px;
-  text-transform: capitalize;
+header nav h1 {
+  margin: 0;
+  font-size: 24px;
 }
-.course-box {
-  width: 100%;
-  height: 300px;
-  padding: 10px 10px 30px 10px;
-  margin-top: 10px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-}
-.course-box ul {
+
+header nav ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
+  justify-content: center;
 }
-.course-box ul li {
-  margin: 10px;
-  color: gray;
-  cursor: pointer;
+
+header nav ul li {
+  margin: 0 10px;
 }
-.course-box ul .active {
-  color: #000;
-  border-bottom: 1px solid #000;
+
+header nav ul li a {
+  color: aliceblue;
+  text-decoration: none;
+  padding: 5px 10px;
 }
-.course-box .course {
-  display: flex;
+
+header nav ul li a:hover {
+  background-color: var(--gray);
+  border-radius: 5px;
 }
-.box {
-  width: 33%;
+
+main {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h2 {
+  color: var(--blue);
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.dashboard {
+  margin-bottom: 40px;
+}
+
+.progress h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.course-progress {
+  margin-bottom: 20px;
+}
+
+.course-progress h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar span {
+  display: block;
+  height: 20px;
+  background-color: var(--blue);
+}
+
+.profile .form-group {
+  margin-bottom: 20px;
+}
+
+.profile .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.profile .form-group input,
+.profile .form-group textarea {
+  width: 100%;
   padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  background: rgb(235, 233, 233);
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
-.box p {
-  font-size: 12px;
-  margin-top: 5px;
+
+.profile .form-group textarea {
+  height: 100px;
+  resize: none;
 }
-.box button {
-  background: #000;
-  color: #fff;
-  padding: 7px 10px;
-  border-radius: 10px;
-  margin-top: 3rem;
+
+.profile button {
+  padding: 10px 20px;
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
-.box button:hover {
-  background: rgba(0, 0, 0, 0.842);
-}
-.box i {
-  font-size: 7rem;
-  float: right;
-  margin: -20px 20px 20px 0;
-}
-.html {
-  color: rgb(25, 94, 54);
-}
-.css {
-  color: rgb(104, 179, 35);
-}
-.js {
-  color: rgb(28, 98, 179);
+
+.profile button:hover {
+  background-color: rgba(3, 8, 21, 0.86);
 }
