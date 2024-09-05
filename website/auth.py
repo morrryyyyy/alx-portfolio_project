@@ -25,6 +25,7 @@ def login():
     return render_template("login.html")
 
 @auth.route('/logout')
+@login_required
 def logout():
     return render_template("logout.html")
 
@@ -64,20 +65,6 @@ def signup():
     return render_template("signup.html", user=current_user)
 
 @auth.route('/dashboard', methods=['GET', 'POST'])
+@login_required
 def dashboard():
-    web_dev = db.session.query(Student).filter(Student.first_name == 'Web Development')
-    graphics = db.session.query(Student).filter(Student.first_name == 'Graphics Design')
-    html5 = db.session.query(Student).filter(Student.first_name == 'HTML5')
-    css = db.session.query(Student).filter(Student.first_name == 'CSS')
-
-    if web_dev:
-        return render_template('dev_dash.html')
-    elif graphics:
-        return render_template('graphics_dash.html')
-    elif css:
-        return render_template('css_dash.html')
-    if html5:
-        return render_template('html_dash.html')
-    else:
-        return render_template('views.index')
-
+        return render_template('dev_dash.html', user=current_user)

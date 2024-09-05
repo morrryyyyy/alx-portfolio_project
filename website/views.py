@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from .models import Student
 from . import db
+from flask_login import login_user, login_required, logout_user, current_user
 
 
 views = Blueprint('views', __name__)
@@ -17,5 +18,5 @@ def contact():
 @views.route('/about')
 def about():
     return render_template("about.html")
-
+    
 
