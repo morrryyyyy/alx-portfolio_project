@@ -9,14 +9,17 @@ views = Blueprint('views', __name__)
 @views.route('/')
 def home():
     return render_template("index.html")
-@views.route('/courses')
-def courses():
-    return render_template("courses.html")
-@views.route('/contact')
-def contact():
-    return render_template("contact.html")
-@views.route('/about')
-def about():
-    return render_template("about.html")
+@views.route('/digital')
+def digital():
+    return render_template("digital.html")
+@views.route('/javascript')
+def javascript():
+    return render_template("javascript.html")
+@views.route('/graphics')
+def graphics():
+    return render_template("graphic_design.html")
+@views.route('/student')
+def student():
+    return render_template("student.html")
     
 

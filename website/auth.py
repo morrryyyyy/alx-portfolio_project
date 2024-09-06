@@ -67,4 +67,4 @@ def signup():
 @auth.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 def dashboard():
-        return render_template('dev_dash.html', user=current_user)
+        return redirect(url_for('views.graphics', user=current_user))
