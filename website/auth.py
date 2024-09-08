@@ -24,11 +24,6 @@ def login():
 
     return render_template("login.html")
 
-@auth.route('/logout')
-@login_required
-def logout():
-    return render_template("logout.html")
-
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -64,7 +59,23 @@ def signup():
 
     return render_template("signup.html", user=current_user)
 
-@auth.route('/dashboard', methods=['GET', 'POST'])
+@auth.route('/dashboard')
 @login_required
 def dashboard():
-        return redirect(url_for('views.graphics', user=current_user))
+    db.session.refresh(current_user)
+    if current_user.course == 'graphics':
+        return render_template("graphic_design.html", user=current_user)
+    elif current_user.course == 'css3':
+        return render_template("css3.html", user=current_user)
+    elif current_user.course == 'html5':
+        return render_template("html5.html", user=current_user)
+    elif current_user.course == 'digital':
+        return render_template("digital.html", user=current_user)
+    else:
+        return render_template("javascript.html", user=current_user)
+    
+@auth.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return render_template("login.html")
