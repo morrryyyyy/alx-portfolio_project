@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DigiLearn - HTML5</title>
-    <link rel="stylesheet" href="css/courses.css" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <h1>DigiLearn</h1>
-        <ul>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="profile.html">Profile</a></li>
-          <li><a href="#">Logout</a></li>
-        </ul>
-      </nav>
-    </header>
-
+{% extends 'base.html' %}
+{% block content %}
     <main>
       <section class="course-page">
         <h2>HTML5</h2>
@@ -40,20 +21,4 @@
           </ul>
         </section>
 
-        <section class="feedback">
-          <h3>Student Feedback</h3>
-          <p>Share your experience with this course!</p>
-          <form id="feedbackForm">
-            <div class="form-group">
-              <label for="feedback">Your Feedback:</label>
-              <textarea id="feedback" name="feedback"></textarea>
-            </div>
-            <button type="submit">Submit Feedback</button>
-          </form>
-        </section>
-      </section>
-    </main>
-
-    <script src="js/courses.js"></script>
-  </body>
-</html>
+ {% endblock %}       

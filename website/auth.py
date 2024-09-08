@@ -62,7 +62,6 @@ def signup():
 @auth.route('/dashboard')
 @login_required
 def dashboard():
-    db.session.refresh(current_user)
     if current_user.course == 'graphics':
         return render_template("graphic_design.html", user=current_user)
     elif current_user.course == 'css3':
@@ -78,4 +77,4 @@ def dashboard():
 @login_required
 def logout():
     logout_user()
-    return render_template("login.html")
+    return redirect(url_for('auth.login', next=auth.dashboard))
