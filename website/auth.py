@@ -15,6 +15,7 @@ def login():
         user = Student.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
+                login_user(current_user)
                 flash('Logged in successfully', category='success')
                 return redirect(url_for('auth.dashboard'))
             else:
@@ -53,7 +54,7 @@ def signup():
                                surname=surname, course=course, password=generate_password_hash(password1))
             db.session.add(new_user)
             db.session.commit()
-            login_user(new_user, remember=True)
+            login_user(new_user, remember=False)
             flash("Account created successfully", category='success')
             return redirect(url_for('auth.login'))
 
@@ -77,4 +78,4 @@ def dashboard():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('auth.login', next=auth.dashboard))
+    return redirect(url_for('auth.login'))
