@@ -15,9 +15,9 @@ def login():
         user = Student.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                login_user(current_user)
-                flash('Logged in successfully', category='success')
-                return redirect(url_for('auth.dashboard'))
+                login_user(current_user, remember=True)
+                next_page = request.args.get('next')
+                return redirect(next_page or url_for('auth.dashboard'))
             else:
                 flash('Incorrect password', category='error')
         else:
@@ -56,7 +56,8 @@ def signup():
             db.session.commit()
             login_user(new_user, remember=False)
             flash("Account created successfully", category='success')
-            return redirect(url_for('auth.login'))
+            next_page = request.args.get('next')
+            return redirect(next_page or url_for('auth.login'))
 
     return render_template("signup.html", user=current_user)
 
@@ -72,10 +73,10 @@ def dashboard():
     elif current_user.course == 'digital':
         return render_template("digital.html", user=current_user)
     else:
-        return render_template("javascript.html", user=current_user)
-    
+        return redirect(url_for('views.javascript'))    
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('auth.login'))
+    next_page = request.args.get('next')
+    return redirect(next_page or url_for('auth.login'))

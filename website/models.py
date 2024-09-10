@@ -3,7 +3,6 @@ from flask_login import UserMixin
 from sqlalchemy.sql import func
 
 class Student(db.Model, UserMixin):
-    _tablename_='users'
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(150))
     surname = db.Column(db.String(150))
@@ -14,6 +13,4 @@ class Student(db.Model, UserMixin):
     course = db.Column(db.String(40))
     phone = db.Column(db.Integer)
     password = db.Column(db.String(150))
-
-
 
