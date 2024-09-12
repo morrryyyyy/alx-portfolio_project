@@ -25,13 +25,9 @@
           <li><a href="#tutor">tutors</a></li>
           <li><a href="#course">courses</a></li>
           <li><a href="#contact">contact</a></li>
-          {% if current_user.is_authenticated %}
-          <li><a href="/dashboard">dashboard</a></li>
-          {% else %}
           <li>
             <a href="/login"><button>login</button></a>
           </li>
-          {% endif %}
         </ul>
       </nav>
 

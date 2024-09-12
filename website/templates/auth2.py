@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, session, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from .models import Student
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
@@ -16,13 +16,13 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 login_user(user, remember=True)
-                return redirect(url_for('auth.course_page', course=user.course))
+                return redirect(url_for('auth.dashboard'))
             else:
                 flash('Incorrect password', category='error')
         else:
             flash('Email does not exist', category='error')
 
-    return render_template("login.html")
+    return render_template("login.html", user=current_user)
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -53,37 +53,19 @@ def signup():
                                surname=surname, course=course, password=generate_password_hash(password1))
             db.session.add(new_user)
             db.session.commit()
-            session['email'] = email
+            login_user(new_user, remember=True)
             flash("Account created successfully", category='success')
-            return redirect(url_for('auth.course_page', course=course))
+            return redirect(url_for('auth.login'))
 
-    return render_template('signup.html')
-
-
-@auth.route('/dashboard/<course>')
-def course_page(course):
-    if 'email' not in session:
-        return redirect(url_for('auth.login'))
-    
-    course_templates = {
-        'javascript': 'javascript.html',
-        'html5': 'html5.html',
-        'digital': 'digital.html',
-        'graphics': 'graphic_design.html',
-        'css3': 'css3.html'
-    }
-
-    if course in course_templates:
-        return render_template(course_templates[course], email=session['email'])
-    else:
-        return render_template('404.html'), 404
-
+    return render_template("signup.html", user=current_user)
 
 @auth.route('/dashboard')
 def dashboard():
-    return render_template('profile.html')
+    return render_template("graphic_design.html", user=current_user)
 
 @auth.route('/logout')
+@login_required
 def logout():
-    session.pop('user.email', None)
-    return redirect(url_for('auth.login'))
+    logout_user()
+    next_page = request.args.get('next')
+    return redirect(next_page or url_for('auth.login'))

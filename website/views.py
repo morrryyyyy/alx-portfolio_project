@@ -7,7 +7,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 views = Blueprint('views', __name__)
 
 @views.route('/')
-def home():
+def index():
     return render_template("index.html")
 @views.route('/digital')
 def digital():
@@ -18,8 +18,5 @@ def javascript():
 @views.route('/graphics')
 def graphics():
     return render_template("graphic_design.html")
-@views.route('/student')
-def student():
-    return render_template("student.html")
-    
+
 
